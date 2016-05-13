@@ -1,0 +1,34 @@
+{
+  "id": "/worker",
+  "cmd": null,
+  "cpus": 0.2,
+  "mem": 256,
+  "disk": 0,
+  "instances": 2,
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "manomarks/worker",
+      "network": "BRIDGE",
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "add-host",
+          "value": "db:1.2.3.4"
+        },
+        {
+          "key": "add-host",
+          "value": "redis:1.2.3.4"
+        }
+      ],
+      "forcePullImage": false
+    }
+  },
+  "labels": {
+    "type": "app"
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "haproxy-public",
+    "instances": 2,
+    "mem": 128,
+    "cpus": 0.1,
+    "acceptedResourceRoles": [
+        "slave_public"
+    ],
+    "constraints": [["hostname", "UNIQUE"]],
+    "container": {
+        "docker": {
+            "image": "sargun/haproxy-demo:3",
+            "network": "HOST"
+        },
+        "type": "DOCKER"
+    },
+    "env": {
+        "CONFIGURL": "https://gist.githubusercontent.com/ndemoor/0915c24c1513282ce7a44ef2cb6a947e/raw/afc075fb4bf02d5b20c2545e4254fdef87a18ad5/dcos_demo_haproxy.conf"
+    },
+    "portDefinitions": [
+        { "port": 9090, "protocol": "tcp", "name": "stats" },
+        { "port": 8000, "protocol": "tcp", "name": "simpleserver" },
+        { "port": 8080, "protocol": "tcp", "name": "votingapp" },
+        { "port": 8081, "protocol": "tcp", "name": "resultapp" }
+    ],
+    "requirePorts": true
+}

@@ -1,0 +1,44 @@
+{
+  "id": "/resultapp",
+  "cmd": null,
+  "cpus": 0.2,
+  "mem": 128,
+  "disk": 0,
+  "instances": 2,
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "ndemoor/votingapp_result-app",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "name": "http",
+          "labels": {
+            "VIP_0": "1.1.1.1:5001"
+          }
+        }
+      ],
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "add-host",
+          "value": "db:1.2.3.4"
+        }
+      ],
+      "forcePullImage": false
+    }
+  },
+  "labels": {
+    "type": "app"
+  },
+  "env": {
+    "PORT": "80"
+  }
+}

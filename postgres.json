@@ -1,0 +1,31 @@
+{
+  "id": "postrgres",
+  "cmd": null,
+  "cpus": 0.5,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "docker": {
+      "network": "BRIDGE",
+      "image": "postgres:9.4",
+      "portMappings": [
+        {
+          "containerPort": 5432,
+          "protocol": "tcp",
+          "name": "in",
+          "labels": {
+            "VIP_0": "1.2.3.4:5432"
+          }
+        }
+      ]
+    },
+    "type": "DOCKER",
+    "volumes": []
+  },
+  "env": {},
+  "labels": {
+    "type": "db"
+  },
+  "healthChecks": []
+}

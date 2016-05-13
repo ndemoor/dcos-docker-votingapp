@@ -1,0 +1,32 @@
+{
+  "id": "redis",
+  "cmd": null,
+  "cpus": 0.5,
+  "mem": 256,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "docker": {
+      "image": "sameersbn/redis",
+      "network": "BRIDGE",
+      "forcePullImage": false,
+      "portMappings": [
+        {
+          "containerPort": 6379,
+          "protocol": "tcp",
+          "name": "in",
+          "labels": {
+            "VIP_0": "1.2.3.4:6379"
+          }
+        }
+      ]
+    },
+    "type": "DOCKER",
+    "volumes": []
+  },
+  "env": {},
+  "labels": {
+    "type": "db"
+  },
+  "healthChecks": []
+}
