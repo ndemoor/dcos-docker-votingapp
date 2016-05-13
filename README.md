@@ -1,2 +1,2 @@
 # dcos-votingapp
-Run the Docker example voting app on DC/OS
+A simple way to run the [https://github.com/docker/docker-birthday-3](Docker Birthday Voting App) on DC/OS through Marathon.
