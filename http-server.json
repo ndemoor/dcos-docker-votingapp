@@ -19,7 +19,6 @@
         {
           "containerPort": 8000,
           "hostPort": 0,
-          "servicePort": 10101,
           "protocol": "tcp",
           "name": "main",
           "labels": {
